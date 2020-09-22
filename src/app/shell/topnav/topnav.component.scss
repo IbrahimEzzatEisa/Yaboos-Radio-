@@ -1,0 +1,262 @@
+
+
+
+    //top navbar
+    .bg-primary {
+        background-color: #1a5356 !important;
+        z-index: 9999;
+    }
+
+    //  navbar text
+    .p-2{
+        color: white !important;
+        font-family: ArabicLight !important;
+    }
+
+      // call icons
+      .fa-phone-square-alt {
+          margin-right: 5px;
+          margin-left: 5px;
+      }
+      
+      //change language icons
+      .fa-globe{
+          margin-left: 8px;
+      }
+
+    // call text
+      .call{
+          margin-right: 10px;
+      }
+
+
+    // close login card
+    .fa-times-circle {
+      color: white;
+      float: right;
+    }
+
+
+    // login title
+    .loginTitle{
+        font-size: 18px !important;
+    }
+
+
+    // login card
+    .card {
+        background: #03292bd1;
+        border: 0;
+        position: relative;
+        z-index: 9999;
+        float: left;
+        width: 22%;
+        margin-left: -8%;
+        margin-top: -1%;
+        margin-left: 8%;
+        margin-bottom: 30px;
+        box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 2.1428rem;
+    }
+
+    // login card body
+    .card-body{
+        position: relative !important; 
+        z-index: 2  !important;
+        text-align: center;
+        font-family: ArabicBold;
+    }
+
+    //login input 
+
+    .input-group-text {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 0px 12px;
+        margin-bottom: 0;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.428571;
+        color: #adb5bd;
+        text-align: center;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 1px solid #cad1d7;
+        border-radius: 10px !important;
+        height: 30px;
+        margin-top: 10px !important;
+
+    }
+
+
+    // btn 
+    .container-login100-form-btn {
+      width: 100% ;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+    }
+
+    // login btn
+    .login100-form-btn {
+        font-family: ArabicLight;
+        font-size: 10px;
+        line-height: 1.5;
+        color: #1a5356;
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+        background: white;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 0 25px;
+        -webkit-transition: all 0.4s;
+        transition: all 0.4s;
+        position: relative;
+        z-index: 1;
+        border: white !important;
+    }
+
+    // btn before 
+    .login100-form-btn::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      top: 0;
+      border: white !important;
+      left: 0;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+      opacity: 0;
+    }
+    // btn hover 
+    .login100-form-btn:hover {
+      background: transparent;
+      color: #fff;
+      border: white !important;
+
+    }
+    // input
+    .form-control{
+      font-size: 10px !important;
+    }
+
+
+    // modal
+    .modal{
+      margin-top: 15%;
+      text-align: center;
+      width: 30%;
+      z-index: 9999;
+      right: 35%;
+      position: absolute;
+      opacity: 1;
+      -webkit-animation: animat 2s ; /* Safari 4+ */
+      -moz-animation:    animat 2s ; /* Fx 5+ */
+      -o-animation:      animat 2s ; /* Opera 12+ */
+      animation:         animat 2s ; /* IE 10+, Fx 29+ */
+    // content
+      .modal-content {
+        background: #1f2251;
+        border-radius: 35px !important;
+    // nheader
+        .modal-header{
+          background-color: #1a5356 !important;
+          height: 12vh;
+          border-top-right-radius: 35px;
+          border-top-left-radius: 35px;
+        
+        
+        }
+    //modal body
+        .modal-body {
+          line-height: 1.9;
+          background-color: white;
+          border-bottom-right-radius: 35px;
+          border-bottom-left-radius: 35px;
+          //main title
+    .textpopTitle{
+      color: #1a5356 !important;
+      margin-left: 0 !important;
+      font-family: ArabicBold;
+      margin-top: 0px;
+      padding-top: 10px;
+    }
+    // text right
+    .detailstxt1{
+      color: #1a5356 !important;
+      font-family: ArabicMd;
+      font-size: 18px;
+      margin-top: -32px;
+
+    }
+    // dash center
+    .dash{
+      color: #1a5356 !important;
+      /* font-size: 24px; */
+      font-family: ArabicBold;
+    }
+    // text left
+    .detailstxt2{
+      color: #1a5356 !important;
+      font-family: ArabicMd;
+      font-size: 18px;
+      float: right;
+
+    }
+
+    // button close
+    .btn-info {
+      background-size: 210% 210%;
+      background-position: top right;
+      background: #1a5356 !important;
+      -webkit-transition: all 0.15s ease;
+      transition: all 0.15s ease;
+      box-shadow: none;
+      margin-bottom: 20px;
+      color: #ffffff;
+      font-family: ArabicLight !important;
+    }
+        }
+      }
+
+    }
+    // animation
+    @keyframes animat {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+
+    // close icon
+    .fa-exclamation-triangle {
+      color: white;
+      margin-top: 3%;
+    }
+
+  .profilepic{
+   width: 25px !important;
+  }
+  .profile{
+    width: 105px !important;
+
+
+  }

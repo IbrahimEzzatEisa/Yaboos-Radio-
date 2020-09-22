@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+.swal2-title {
+  position: relative;
+  max-width: 100%;
+  margin: 0 0 .4em;
+  padding: 0;
+   color: #1a5356 !important; 
+  font-size: 1.875em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: none;
+  word-wrap: break-word;
+  font-family: ArabicBold;
+
+}
+.swal2-content {
+  z-index: 1;
+  justify-content: center;
+  margin: 0;
+  padding: 0 1.6em;
+  color: #1a5356 !important;
+  font-size: 1.125em;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  word-wrap: break-word;
+  font-family: ArabicLight;
+
+}
+.swal2-popup {
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  width: 32em;
+  max-width: 100%;
+  padding: 1.25em;
+  border: none;
+  border-radius: 15px !important;
+  //  background: #1a5356 !important;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.swal2-styled.swal2-cancel {
+  border: 0;
+  border-radius: 4.25em !important;
+  background: initial;
+  color: #fff;
+  font-size: 1.0625em;
+}
+
+
+.swal2-icon {
+  position: relative;
+  box-sizing: content-box;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+  margin: 1.25em auto 1.875em;
+  border: .25em solid transparent;
+  border-radius: 50%;
+  font-family: inherit;
+  line-height: 5em;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.swal2-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   padding: 0 1.8em; 
+
+
+}
+.swal2-icon.swal2-warning {
+  border-color: #1a5356 !important;
+  color: #1a5356!important;
+}
+
+/*  English font*/
+
+@font-face {
+    font-family: Enbold;
+    src: url("../src/assets/fonts/GOTHICB.TTF");
+  }
+  @font-face {
+    font-family: En;
+    src: url("../src/assets/fonts/GOTHIC.TTF");
+  }
+
+ /*  Arabic font*/
+
+  @font-face {
+    font-family: ArabicBold;
+    src: url("../src/assets/fonts/ArbFONTS-GE_SS_Two_Bold.otf");
+  }
+  @font-face {
+    font-family: ArabicMd;
+    src: url("../src/assets/fonts/ArbFONTS-GE_SS_TWO_MEDIUM.otf");
+  }
+  @font-face {
+    font-family: ArabicLight;
+    src: url("../src/assets/fonts/ArbFONTS-GE-SS-Two-Light.otf");
+  }
+ 
+
+ *{
+   cursor: pointer;
+ }
+ body{
+   overflow: hidden;
+  animation: animate 60s  ease-in-out infinite 0s  !important;
+  backface-visibility: hidden !important;
+  animation-direction: alternate !important;
+  animation-fill-mode: forwards !important;
+   animation-iteration-count: infinite !important;
+   animation:animate 60s ease-in-out infinite 0s !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -webkit-animation-duration: 60s;
+  -moz-animation-duration: 60s;
+  -o-animation-duration: 60s;
+  -ms-animation-duration: 60s;
+  animation-duration: 96s;
+  -webkit-animation-name: animate;
+  -moz-animation-name: animate;
+  -o-animation-name: animate;
+  -ms-animation-name: animate;
+  animation-name: animate;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  // background-image: url('./assets/img/test1.jpg');
+  background-image: url('./assets/img/test5.jpg');
+  background-image: url('./assets/img/test1.jpg');
+  background-image: url('./assets/img/test2.jpg');
+  background-image: url('./assets/img/test3.jpg');
+  background-image: url(' ./assets/img/test4.jpg');
+  background-image: url(' ./assets/img/test7.jpg');
+  background-image: url('./assets/img/test5.jpg');
+
+
+
+
+
+
+
+
+ }
+
+@keyframes animate{
+  
+    0%{
+      background-image: url('./assets/img/test5.jpg');
+
+        // opacity: 0;
+    }
+    10%{
+         background-image: url('./assets/img/test1.jpg');
+
+    }
+    
+    25%{
+      background-image: url('./assets/img/test2.jpg');
+    }
+
+  
+
+    50%{
+      background-image: url('./assets/img/test3.jpg');
+
+    }
+ 
+
+    75%{
+      background-image: url(' ./assets/img/test4.jpg');
+
+
+    }
+
+
+       85% {
+      background-image: url(' ./assets/img/test7.jpg');
+
+
+    }
+
+
+       100%{
+        background-image: url('./assets/img/test5.jpg');
+
+    }
+  }

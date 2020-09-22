@@ -1,0 +1,261 @@
+<app-topnav [logoutPermission]="logoutPermission"  [loginPermission]="loginPermission" (formlogin) ="OpenloginFoem()" (formSing) ="openSingForm()"></app-topnav>
+<app-navbar [menuFavorite]="menuFavorite"  [menu]="menu" (errorShowM) = close()  (formlogin) ="OpenloginFoem()" (formSing) ="openSingForm()"></app-navbar>
+<router-outlet></router-outlet>
+
+<!-- spinner-->
+<ngx-spinner [fullScreen]="true"  size="large"   bdColo="red">
+    <p class="loading"> <img  class="logoSpinner" src="../assets/img/logo.png"> </p>
+</ngx-spinner>
+
+
+<!-- file Assets-->
+<div class="Assets" hidden>
+  <img src="../assets/img/test1.jpg">
+  <img src="../assets/img/test2.jpg">
+  <img src="../assets/img/test3.jpg">
+  <img src="../assets/img/test4.jpg">
+  <img src="../assets/img/test5.jpg">
+  <img src="../assets/img/test55.jpg">
+  <img src="../assets/img/test7.jpg">
+</div>
+<!-- files-->
+
+<!-- Login Component -->
+
+<div class="loginform">
+    <div class="card " *ngIf="OpenLogin">
+      <div class="card-body">
+        <h5 class="card-title text-right">
+          <!-- close login -->
+          <i class="fas fa-times-circle" (click)="closeLogin()"></i>
+          <!-- End of Close login-->
+        </h5>
+        <div class="card-header">
+          <!-- title-->
+          <h5> تسجيل الدخول</h5>
+        </div>
+        <!-- form login inputs-->
+        <div class="card-body">
+          <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+            <!-- user name-->
+            <span class="input-group-text">
+              <input class="form-control " 
+               type="text"
+               placeholder="البريد الإلكتروني"
+               autocomplete="off"
+                 name="username"
+                [(ngModel)]="user.username"
+                 #username="ngModel" />
+            </span>
+          </div>
+  
+          <!-- password-->
+          <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+            <span class="input-group-text">
+              <input class="form-control " type="password" 
+              placeholder=" كلمة المرور"
+               autocomplete="off" name="password"
+                [(ngModel)]="user.password" #password="ngModel" />
+            </span>
+          </div>
+  
+          <div>
+            <!-- btn login-->
+            <div class="container-login100-form-btn p-t-10">
+              <button class="login100-form-btn " (click)="login()">
+                تسجيل الدخول
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End form login input-->
+      </div>
+    </div>
+  </div>
+  
+  <!-- End Component login-->
+  
+  <!-- Singup Component -->
+  <div class="loginform">
+    <div class="card  singForm" *ngIf="OpenSingup">
+      <div class="card-body">
+        <h5 class="card-title text-right">
+          <!-- close login -->
+          <i class="fas fa-times-circle" (click)="closeSingup()"></i>
+          <!-- End of Close login-->
+        </h5>
+        <div class="card-header">
+          <!-- title-->
+          <h5> انشاء حساب</h5>
+        </div>
+        <!-- form login inputs-->
+        <div class="card-body">
+  
+          <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+            <!--  name-->
+            <span class="input-group-text">
+              <input class="form-control "
+               type="email" 
+               placeholder="البريد الإلكتروني"
+                autocomplete="off"
+                name="username"
+                [(ngModel)]="singup.username" 
+                #username="ngModel" />
+            </span>
+          </div>
+  
+          
+          <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+            <!-- user name-->
+            <span class="input-group-text">
+              <input class="form-control "
+               type="text" 
+               placeholder="الأسم"
+                autocomplete="off"
+                 name="name"
+                [(ngModel)]="singup.name" 
+                #name="ngModel" />
+            </span>
+          </div>
+  
+          <!-- password-->
+          <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+            <span class="input-group-text">
+              <input class="form-control "
+               type="password"
+                placeholder=" كلمة المرور"
+                 autocomplete="off"
+                  name="password"
+                [(ngModel)]="singup.password"
+                 #password="ngModel" />
+            </span>
+          </div>
+  
+  
+             <!-- confirm password-->
+             <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+              <span class="input-group-text">
+                <input class="form-control "
+                 type="password"
+                  placeholder="  تأكيد كلمة المرور "
+                   autocomplete="off"
+                    name="confirmpass"
+                  [(ngModel)]="singup.confirmpass"
+                   #confirmpass="ngModel" />
+              </span>
+            </div>
+  
+          <div>
+            <!-- btn login-->
+            <div class="container-login100-form-btn p-t-10">
+              <button class="login100-form-btn " (click)="singin()">
+                 انشاء حساب
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End form login input-->
+      </div>
+    </div>
+  </div>
+  
+  <!-- End Component login-->
+  
+
+  <!-- Modal  Error message-->
+<div class="col-md-12 text-center" *ngIf="errorShow">
+    <div aria-hidden="false" aria-labelledby="myModalLabel"  class="modal fade modal-black"
+      id="myModal2" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <div class="text-muted text-center ml-auto mr-auto">
+              <!-- icon warming-->
+              <i  class="fas fa-exclamation-triangle fa-5x"></i> 
+
+            </div>
+          </div>
+  
+  
+          <div class="modal-body">
+            <div class="text-muted text-center ml-auto mr-auto" >
+              <!-- main title-->
+              <h1  class="textpopTitle">عفوا</h1>
+
+            </div>
+  
+            <div class="text-muted text-center ml-auto mr-auto">
+              <div class="row">
+                <div class="col text-center ">
+                  <!-- Error message text-->
+                  <h3 class="detailstxt1"> {{ErrorMessage}} </h3>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="text-muted text-center ml-auto mr-auto">
+              <div class="row">
+                <!-- close message button -->
+                <div class="col">
+                  <button class="btn btn-info" (click)="closeMessage()"> أغلاق</button>
+                </div>
+              </div>
+              <!-- close message button -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of error message-->
+
+
+
+    <!-- Modal  Error message-->
+<div class="col-md-12 text-center" *ngIf="done">
+  <div aria-hidden="false" aria-labelledby="myModalLabel"  class="modal fade modal-black"
+    id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <div class="text-muted text-center ml-auto mr-auto">
+            <!-- icon warming-->
+            <i  class="fas fa-check-circle fa-5x"></i>
+
+          </div>
+        </div>
+
+
+        <div class="modal-body">
+          <div class="text-muted text-center ml-auto mr-auto" >
+            <!-- main title-->
+            <h1 class="textpopTitle"></h1>
+
+          </div>
+
+          <div class="text-muted text-center ml-auto mr-auto">
+            <div class="row">
+              <div class="col text-center ">
+                <!-- Error message text-->
+                <h3 class="detailstxt1"> {{Message}} </h3>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="text-muted text-center ml-auto mr-auto">
+            <div class="row">
+              <!-- close message button -->
+              <div class="col">
+                <button class="btn btn-info" (click)="closeMessageDone()"> أغلاق</button>
+              </div>
+            </div>
+            <!-- close message button -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of error message-->

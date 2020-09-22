@@ -1,0 +1,526 @@
+<!-- start Navbar -->
+<nav class="navbar navbar-expand-lg  navbar-transparent">
+  <div class="container-fluid">
+    <!-- open navbar mobile-->
+    <button aria-controls="navigation-index" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler"
+      [attr.aria-expanded]="!isCollapsed" (click)="isCollapsed = !isCollapsed" id="navigation" type="button">
+      <span class="navbar-toggler-bar bar1"> </span>
+      <span class="navbar-toggler-bar bar2"> </span>
+      <span class="navbar-toggler-bar bar3"> </span>
+    </button>
+    <!--  navbar mobile-->
+
+    <!-- logo img-->
+    <div class="navbar-translate">
+      <a class="Logo" [routerLink]="['/yaboos']" placement="bottom">
+        <img class="logoImg" src="../../../assets/img/logo.png">
+      </a>
+    </div>
+    <!-- End  logo img-->
+
+    <div class="col-md-9">
+      <div class="navbar-collapse justify-content-end" [collapse]="isCollapsed" id="navigation">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <!-- close mobile Navbar-->
+            <div class="col-6 collapse-close text-left">
+              <button aria-controls="navigation-index" aria-label="Toggle navigation" class="navbar-toggler"
+                [attr.aria-expanded]="!isCollapsed" (click)="isCollapsed = !isCollapsed" id="navigation" type="button">
+                <i class="fa fa-times"> </i>
+              </button>
+            </div>
+            <!-- End close mobile Navbar -->
+          </div>
+        </div>
+
+        <!-- menu -->
+        <ul class="navbar-nav  mob">
+          <li class="nav-item">
+
+            <a class="nav-link" rel="tooltip" title="Home" [routerLinkActive]="['active']" [routerLink]="['/yaboos']" (click)="openhome()"
+              data-placement="bottom">
+              الرئيسية <br>
+              <i class="fa fa-home  fa-2x"></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" (click)="openMenu()" title="Library" [routerLinkActive]="['active']"
+              data-placement="bottom">
+              المكتبة <br>
+              <i class="fas fa-list-ul "></i> </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title=" Favorite" [routerLinkActive]="['active']"
+              (click)="openMenuFavorite()" data-placement="bottom">
+              المفضلة <br>
+              <i class="fas fa-headphones-alt"></i> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="Poadcast" [routerLinkActive]="['active']" data-placement="bottom">
+              البرامج <br>
+
+              <i class="fas fa-microphone-alt"></i> </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="About us " (click)="openAbout()" data-placement="bottom">
+              من نحن <br>
+              <i class="fas fa-users"></i>
+            </a>
+          </li>
+
+
+        </ul>
+        <!-- End menu-->
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+<!-- End Navbar-->
+
+<!-- start  library Songs-->
+<div class="card" *ngIf="menu">
+  <div class="card-body">
+    <h5 class="card-title text-right">
+      <!-- close menu library-->
+      <i class="fas fa-times-circle" (click)="closeMenu()"></i>
+    </h5>
+    <!-- search input-->
+    <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+      <span class="input-group-text">
+        <input class="form-control " type="text" (change)="getSongsSearch()" [(ngModel)]="search " />
+        <i class="fa fa-search"> </i>
+      </span>
+    </div>
+    <!-- End of search-->
+
+  
+    <div class="card-header">
+
+     
+  
+      <!-- tabs-->
+      <tabset class="nav-tabs-danger">
+  
+        <tab >
+          <ng-template tabHeading  >
+              الاغاني
+          </ng-template>
+
+            <div   class="container SongScroll " *ngIf="song.length !=0 ">
+              <div class="row SongsItem " *ngFor="let data of song   ;let i=index" >
+                <div class="col ">
+                  <!--play-->
+                  <i class="fas fa-play-circle " (click)="Open( data,i);"> </i>
+                </div>
+  
+                <div class="col songs">
+                  <a> <span class="textSong " (click)="Open( data,i);"> {{data.titleAr}} </span></a>
+                   <!-- <a> <span class="textSong " *ngIf="data.isPlay"  (click)="pause(data , i)"> {{data.titleAr}} </span></a>  -->
+                </div>
+  
+                <div class="col texticon">
+                  <!--download icons -->
+  
+                  <!--like icons -->
+                  <a class="texticon " *ngIf="data.isPlay" ><i class="fas fa-heart" (click)="like(data , i)"></i> </a>
+                  <a class="texticon " *ngIf="!data.isPlay" ><i class="far fa-heart "  (click)="like(data , i)"></i> </a>
+  
+  
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <p  class=" loadText text-center" (click)="loadMore()"> المزيد <p>
+  
+                </div>
+              </div>
+            </div>
+    
+
+        </tab>
+        <tab  >
+          <ng-template tabHeading >
+              الالبوم
+          </ng-template>
+            <div class="container SongScroll " *ngIf="album.length !=0  ">
+
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-3  col-sm-3 col-xs-3"  *ngFor="let item of album">
+                    <img class="imgAlbum" src="../../../assets/img/img.png" (click)="getAblum(item, i)">
+                   <p class="textAlbum" > {{item.titleAr}}</p>
+                  </div>
+  
+               
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <p  class=" loadText text-center" (click)="loadMore()"> المزيد <p>
+  
+                </div>
+              </div>
+          
+            </div>
+       
+
+        </tab>
+        <tab>
+          <ng-template tabHeading>
+              الفنان
+          </ng-template>
+          
+          <div class="container SongScroll" *ngIf="artist.length !=0">
+
+
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4"  *ngFor="let prop of artist">
+                  <img class="imgArtist" src="../../../assets/img/img.png" (click)="getArtist(prop, i)">
+                 <p class="textArtist" > {{prop.nameAr}}</p>
+                </div>
+
+             
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <p  class=" loadText text-center" (click)="loadMore()"> المزيد <p>
+
+              </div>
+            </div>
+
+      
+          </div>
+        </tab>
+      </tabset>
+    </div>
+
+  </div>
+</div>
+<!-- End container libray Songs-->
+
+<!-- open   media player songs-->
+<div class="o-background" *ngIf="isPlaying">
+  <div class="c-player">
+    <!-- close media player-->
+    <i class="far fa-times-circle " (click)="closeMedia()"></i>
+    <div class="c-player__picture">
+      <div class="c-player__picture__images">
+        <!-- <img [src]='ArtistImg'> -->
+        <img class="Arimg"src="../../../assets/img/img.png">
+        
+        <!-- img artist-->
+      </div>
+    </div>
+
+    <div class="c-player__details">
+      <!-- name of artist and songs -->
+      <strong> {{ArtistName}}</strong>
+      <span> {{songsName}} </span>
+    </div>
+
+    <div class="c-player__ui ">
+      <!-- media player icons-->
+      <a (click)="pause()" *ngIf="musicPause"><i class="fas fa-pause-circle  fa-2x"></i></a>
+      <a (click)="returnPlay()" *ngIf="musicplay"><i class="fas fa-play-circle pl  fa-2x"></i></a>
+    </div>
+  </div>
+</div>
+<!-- End Library -->
+
+
+
+<!-- start  favor Songs-->
+<div class="card" *ngIf="menuFavorite">
+  <div class="card-body">
+    <h5 class="card-title text-right">
+      <!-- close menu library-->
+      <i class="fas fa-times-circle" (click)="closeMenuFavorite()"></i>
+    </h5>
+
+    <div class="card-header">
+      <div class="container SongScroll">
+        <div class="row SongsItem " *ngFor="let datas of songsFav;    let i=index">
+          <div class="col ">
+            <!--play-->
+            <i class="fas fa-play-circle " (click)="Play( datas ,i);"> </i>
+          </div>
+
+
+          <div class="col songs">
+            <a> <span class="textSongss" (click)="Play( datas.song,i);">{{datas.song.titleAr}} </span></a>
+            <!-- <a>  <span class="textSong " *ngIf="data.isPlay"  (click)="pause(data , i)"> {{data.titleAr}} </span></a> -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p   class=" loadText text-center" (click)="loadMoreFav()"> المزيد <p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End container libray Songs-->
+
+
+<!-- open   media player songs-->
+
+<div class="o-background" *ngIf="isPlayingfav">
+  <div class="c-player">
+    <i class="far fa-times-circle " (click)="closeMediafav()"></i>
+    <div class="c-player__picture">
+      <div class="c-player__picture__images">
+        <!-- <img [src]='ArtistImg'> -->
+        <img class="Arimg" src="../../../assets/img/img.png">
+
+      </div>
+    </div>
+    <div class="c-player__details">
+      <!-- name songs snd artist-->
+      <strong> {{ArtistName}}</strong>
+      <span> {{SongsNameFav}} </span>
+    </div>
+
+    <div class="c-player__ui ">
+      <!-- media player buttons-->
+      <a (click)="pause()" *ngIf="musicPause"><i class="fas fa-pause-circle  fa-2x"></i></a>
+      <a (click)="returnPlay()" *ngIf="musicplay"><i class="fas fa-play-circle pl  fa-2x"></i></a>
+    </div>
+
+  </div>
+</div>
+<!-- End Library -->
+
+
+<!-- message error-->
+<div class="col-md-12 text-center" *ngIf="errorShow">
+  <div aria-hidden="false" aria-labelledby="myModalLabel" bsModal class="modal fade modal-black" #myModal2="bs-modal"
+    id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <div class="text-muted text-center ml-auto mr-auto">
+            <!-- icons warming-->
+            <i class="fas fa-exclamation-triangle fa-5x"></i> </div>
+        </div>
+
+        <!-- title and buttom -->
+        <div class="modal-body">
+          <div class="text-muted text-center ml-auto mr-auto">
+            <h1 class="textpopTitle">عفوا</h1>
+          </div>
+
+
+          <div class="text-muted text-center ml-auto mr-auto">
+            <h2 class="textinfo"> أنت لست مشترك ! </h2>
+          </div>
+
+          <div class="text-muted text-center ml-auto mr-auto">
+            <div class="row">
+              <div class="col ">
+                <h3 class="detailstxt1" (click)="loginForm()"> تسجيل الدخول</h3>
+              </div>
+
+              <div class="col">
+                <h3 class="dash"> - </h3>
+              </div>
+
+              <div class="col">
+                <h3 class="detailstxt2"  (click)="SingupForm()"> أنشاء حساب </h3>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="text-muted text-center ml-auto mr-auto">
+            <div class="row">
+
+              <!-- button to close message -->
+              <div class="col">
+                <button class="btn btn-info" (click)=" closeMessage()"> أغلاق</button>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- start  library Songs-->
+<div class="card" *ngIf="menuSongAblum">
+  <div class="card-body">
+    <h5 class="card-title text-right">
+      <!-- close menu library-->
+      <i class="fas fa-times-circle" (click)="closeMenualbum()"></i>
+    </h5>
+   
+    <div class="card-header">
+      <div   class="container SongScroll" *ngIf="song.length !=0">
+        <div class="col-md-12  col-sm-12 col-xs-12 text-center" >
+          <img class="imgAlbumSongs" src="../../../assets/img/img.png">
+        </div>
+        <div class="row SongsItem " *ngFor="let item of song   let i=index">
+          <div class="col ">
+            <!--play-->
+            <i class="fas fa-play-circle " (click)="Open( item,i);"> </i>
+          </div>
+
+          <div class="col songs">
+            <a> <span class="textSong " (click)="Open( item,i);"> {{item.titleAr}} </span></a>
+            <!-- <a>  <span class="textSong " *ngIf="data.isPlay"  (click)="pause(data , i)"> {{data.titleAr}} </span></a> -->
+          </div>
+
+          <div class="col texticon">
+            <!--download icons -->
+
+            <!--like icons -->
+            <a class="texticon " ><i class="far fa-heart" (click)="like(data , i)"></i> </a>
+
+          </div>
+        </div>
+       
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p  class=" loadText text-center" (click)="loadMore()"> المزيد <p>
+
+          </div>
+        </div>
+      </div>
+
+
+ 
+    </div>
+
+  </div>
+</div>
+<!-- End container libray Songs-->
+
+
+
+
+
+
+<!-- start  abbums of artist  -->
+<div class="card" *ngIf="menuSongAblumArtist">
+  <div class="card-body">
+    <h5 class="card-title text-right">
+      <!-- close menu library-->
+      <i class="fas fa-times-circle" (click)="closeMenuaAlbumArtist()"></i>
+     </h5>
+   
+    <div class="card-header">
+      <div class="container SongScroll " *ngIf="album.length !=0">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3  col-sm-3 col-xs-3"  *ngFor="let item of album">
+              <img class="imgAlbum" src="../../../assets/img/img.png" (click)="getAblum(item, i)">
+             <p class="textAlbum" > {{item.titleAr}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p  class=" loadText text-center" (click)="loadMoreAlbumofArtist()"> المزيد <p>
+
+          </div>
+        </div>
+    
+      </div>
+
+
+      
+   
+
+
+ 
+    </div>
+
+  </div>
+</div>
+<!-- End container libray Songs-->
+
+
+
+
+
+
+
+
+
+
+<!-- about-->
+<div class="wrapper">
+  <section class="section section-lg"  *ngIf="showAbout">
+    <div class="container-fluid text-center">
+      <div class="row  ">
+
+          <div class="col-lg-12 col-md-6 col-sm-12">
+              <div class="row infoAbout">
+
+                  <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <h1 class="infoAbouttext">  بجودة القدس المنبثقة من قلب القدس , يابوس هو أول راديو مجتمعي لدعم الرواد و صمودهم فى المدينة . </h1>
+                  </div>
+
+                  <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <h1  class="infoAbouttext">  محطتنا مستقلة وغير مسيسة , و هناك إعلانات تجارية . </h1>
+                  </div>
+
+
+                  <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <h1  class="infoAbouttext">    برامجنا اجتماعية , ثقافية , تعليمية , ترفيهية , كلها برامج قصيرة , أخبارنا الاجتماعية و الثقافية تنبع من إطار معتدل و متوازن لتحفيز الشباب على تولى القيادة     </h1>
+                      <h1  class="infoAbouttext"> و العمل مع نشر مفاهيم الحرية و العيش بكرامة لتعزيز قيمة الإنسان و المكان فى مدينتنا الحبيبة .</h1>
+                  </div>
+
+
+
+                  <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <h1  class="infoAbouttext"> <span class="eng">Yaboos FM  </span>  هي مواطن لكل ملاذ بلدي ولها وسائل الإعلام من القدس إلي جميع أنحاء العالم وكل المساحة التي نذيعها إلى أصوات مقدساتها      </h1>
+                      <h1  class="infoAbouttext">  بعيدا عن وسائل الإعلام , صوت من الأرض إلي سما .</h1>
+                  </div>
+
+
+                  <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <h1  class="infoAbouttext">  <span class="eng">Yaboos FM  </span>  من القدس و جميع محبي القدس    .  </h1>
+                  </div>
+              
+              </div>
+              
+          </div>
+
+     
+
+
+   
+      </div>
+    </div>
+
+
+
+
+  </section>
+</div>

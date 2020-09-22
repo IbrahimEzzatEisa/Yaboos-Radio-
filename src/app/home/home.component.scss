@@ -1,0 +1,129 @@
+
+// Home page section
+section{
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: hidden;
+    background-position: center center;
+    backface-visibility: hidden !important;
+    animation-direction: alternate !important;
+    animation-fill-mode: forwards !important;
+     animation-iteration-count: infinite !important;
+     animation:animate 60s ease-in-out infinite 0s !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -webkit-animation-duration: 60s;
+    -moz-animation-duration: 60s;
+    -o-animation-duration: 60s;
+    -ms-animation-duration: 60s;
+    animation-duration: 96s;
+    -webkit-animation-name: animate;
+    -moz-animation-name: animate;
+    -o-animation-name: animate;
+    -ms-animation-name: animate;
+    animation-name: animate;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+
+// animation background
+@keyframes animate{
+
+    0%{
+      background-image: url('../../assets/img/test5.jpg');
+    }
+    10%{
+         background-image: url('../../assets/img/test1.jpg');
+    }
+    
+    25%{
+      background-image: url('../../assets/img/test2.jpg');
+    }
+
+    50%{
+      background-image: url('../../assets/img/test3.jpg');
+    }
+ 
+
+    75%{
+      background-image: url('../../assets/img/test4.jpg');
+    }
+
+    85% {
+      background-image: url(' ../../assets/img/test7.jpg');
+    }
+       100%{
+        background-image: url('../../assets/img/test5.jpg');
+    }
+  }
+
+// image play 
+.imgCD{
+   width: 50% !important;
+   margin-bottom: 2px;
+    margin-top: 29% !important;
+    margin-left: 33%;
+    position: relative;
+  }
+
+// img fm
+  .imged {
+    width: 50%;
+    margin-top: 61% !important ;
+    margin-bottom: 49px;
+}
+
+ // btn fm
+.btn-round.btn-simple {
+    padding: 7px 10px;
+}
+// btn -Fm
+.btn-danger.btn-simple {
+  color: white;
+  border-color: white;
+  background: transparent;
+  width: 40%;
+  margin-right: 30px;
+  font-size: 20px;
+
+}
+
+// btn Google and APPLE
+.btn-round {
+  border-width: 1px;
+  border-radius: 6px !important;
+}
+
+// main text
+  h1{
+    font-family: ArabicBold;
+    margin-bottom: 3px;
+    margin-left: 15% !important;
+    color: white;
+  }
+
+  //text small
+  p{ 
+    font-family: ArabicMd;
+    color: white !important;
+      margin-bottom: 0 !important;
+      margin-left: 15% !important;
+  }
+// img button high and low
+  .hq{
+    max-width: 22px;
+    float: right;
+    margin-top: 45%;
+    margin-right: -77%;
+    position: absolute;
+  }
+  

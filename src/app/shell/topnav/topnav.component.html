@@ -1,0 +1,114 @@
+<!-- top nav bar-->
+<nav class="navbar navbar-expand-lg  bg-primary">
+
+  <div class="container-fluid  fixed">
+    <div class="navbar-translate mobiledire">
+      <!-- icons right-->
+      <a class="p-2"><i class="fab fa-instagram "></i></a>
+      <a class="p-2"><i class="fab fa-twitter"></i></a>
+      <a class="p-2"> <i class="fab fa-youtube"></i> </a>
+      <a class="p-2"><i class="fab fa-facebook-f"></i></a>
+      <a class="p-2 call"> اتصل بنا <i class="fas fa-phone-square-alt"></i> </a>
+
+
+    </div>
+    <!-- icon left-->
+    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 icons">
+
+      <img class="profilepic" *ngIf="logoutPermission"  (click)="Setting()" src="../../../assets/img/img.png">
+      <a class="p-2 " *ngIf="logoutPermission"   (click)="Setting()" >  اسم المستخدم</a>
+
+      <a class="p-2"> <i class="fa fa-globe"></i> EN</a>
+      <a class="p-2 " *ngIf="loginPermission"    (click)="OpenLoginPage()"> تسجيل الدخول</a>
+      <a class="p-2 " *ngIf="logoutPermission"  (click)="logout()"> تسجيل الخروج</a>
+
+      <a class="p-2" *ngIf="loginPermission"> |</a>
+      <a class="p-2" *ngIf="loginPermission" (click)="SingUp()"> انشاء حساب</a>
+
+      <!-- drop down not used now -->
+      <!-- <a ngbDropdown
+            class="dropdown"
+            placement="bottom-left">
+            <a class="p-2"
+                id="dropdownBasic1"
+                ngbDropdownToggle><i class="fa fa-globe"
+                    aria-hidden="true"></i></a>
+            <div ngbDropdownMenu
+                aria-labelledby="dropdownBasic1"
+                class="dropdown-danger dropdown-menu-right">
+                <a class="dropdown-item"> EN</a>
+                <a class="dropdown-item">AR </a>
+            </div>
+        </a> -->
+    </div>
+  </div>
+</nav>
+
+<!-- End top Nav bar-->
+
+
+<!-- setting Component -->
+
+<div class="loginform">
+  <div class="card " *ngIf="OpenSetting">
+    <div class="card-body">
+      <h5 class="card-title text-right">
+        <!-- close login -->
+        <i class="fas fa-times-circle" (click)="closeSettingForm()"></i>
+        <!-- End of Close login-->
+      </h5>
+      <div class="card-header">
+        <!-- title-->
+        <div class=" col-md-12 text-center">
+          <img class="profile" *ngIf="logoutPermission" src="../../../assets/img/img.png">
+        </div>
+      </div>
+      <!-- form login inputs-->
+      <div class="card-body">
+        <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+          <!-- user name-->
+          <span class="input-group-text">
+            <input class="form-control " 
+             type="text"
+             placeholder="اسم المستخدم"
+             autocomplete="off"
+               name="username"
+              [(ngModel)]="user.username"
+               #username="ngModel" />
+               <i  class="fa fa-edit"></i>
+
+
+          </span>
+      
+
+        </div>
+
+        <!-- password-->
+        <div class="" [ngClass]="{ 'input-group-focus': focus === true }">
+          <span class="input-group-text">
+            <input class="form-control "
+             type="password" 
+            placeholder=" تعديل كلمة المرور "
+             autocomplete="off" name="password"
+              [(ngModel)]="user.password" 
+              #password="ngModel" />
+              <i  class="fa fa-edit"></i>
+
+          </span>
+        </div>
+
+        <div>
+          <!-- btn login-->
+          <div class="container-login100-form-btn p-t-10">
+            <button class="login100-form-btn " >
+               حفظ التعديلات
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End form login input-->
+    </div>
+  </div>
+</div>
+
+<!-- End Component login-->
